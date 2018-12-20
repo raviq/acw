@@ -17,17 +17,17 @@ class Product(object):
 
 	def __init__(self, data, dimtype):	
 		self._data = data
-		self._dimention_type = dimtype
+		self._dimension_type = dimtype
 		
 	# Getters of attributes and dimensions
 	def get_attribute(self, name):
 		return self._data[name] if name in self._data else None
 
 	def get_dimensions(self):
-		return map(lambda x: str(x), self.get_attribute(self._dimention_type).keys())
+		return map(lambda x: str(x), self.get_attribute(self._dimension_type).keys())
 	
 	def get_size(self, dimname):
-		return self.get_attribute(self._dimention_type)[dimname]
+		return self.get_attribute(self._dimension_type)[dimname]
 		
 	# Calculation of the average cubic weight in cubic meters
 	def get_average_cubic_weight(self, cubic_conv_factor = 250., cm2m_factor = 100.):		
