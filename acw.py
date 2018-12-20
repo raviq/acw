@@ -1,6 +1,6 @@
 #-------------------------------------------------------------------------------------------
 # ACW.
-# Calculation of average cubic weight for a list of products in JSON.
+# Calculation of the average cubic weight for a list of products in JSON.
 # Usage: python acw.py url
 # See README for more details.
 #-------------------------------------------------------------------------------------------
@@ -29,7 +29,7 @@ class Product(object):
 	def get_size(self, dimname):
 		return self.get_attribute(self._dimention_type)[dimname]
 		
-	# Calculating average cubic weight in cubic meters after conversion
+	# Calculation of the average cubic weight in cubic meters
 	def get_average_cubic_weight(self, cubic_conv_factor = 250., cm2m_factor = 100.):		
 		product = reduce(mul, map(lambda dim: self.get_size(dim), self.get_dimensions()), 1)
 		return (product / cm2m_factor**3) * cubic_conv_factor
@@ -37,6 +37,7 @@ class Product(object):
 # Utility function to open the API endpoint and convert it to a JSON data string
 #-------------------------------------------------------------------------------------------
 def get_api_endpoint(url):
+
 	try: 
 		# Open url and dump response to a JSON string
 		data = json.load(urllib2.urlopen(url))
@@ -48,7 +49,7 @@ def get_api_endpoint(url):
 #-------------------------------------------------------------------------------------------
 def main(target_category):
 
-	# Gets the API endpoint as argument
+	# Read the API endpoint
 	if len(sys.argv) != 2:
 		sys.exit("Usage: python acw.py url")
 		
@@ -60,11 +61,11 @@ def main(target_category):
 	for object in objects:
 		product = Product(object, "size")
 		category = product.get_attribute("category")
-		# fin desired product
+		# find desired product
 		if category == target_category:
 			data[product.get_attribute("title")] = product.get_average_cubic_weight()
 	
-	return data
+	return data # return results
 			
 # Calling main with one specific category ("Air Conditioners") and printing results
 #-------------------------------------------------------------------------------------------
