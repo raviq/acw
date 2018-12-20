@@ -21,4 +21,11 @@ python acw.py url
 python acw.py http://wp8m3he1wt.s3-website-ap-southeast-2.amazonaws.com/api/products/1
 ```
 
+Results in:
 
+```
+$ python acw.py http://wp8m3he1wt.s3-website-ap-southeast-2.amazonaws.com/api/products/1
+Average cubic weight (ACW) for the "Air Conditioners" category:
+ Window Seal for Portable Air Conditioner Outlets             => 0.845      (kg)
+ Kogan 10,000 BTU Portable Air Conditioner (2.9KW)            => 42.70932   (kg)
+```
