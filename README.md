@@ -18,7 +18,7 @@ python acw.py url
 ### Example
 
 
-```
+```python
 $ python acw.py http://wp8m3he1wt.s3-website-ap-southeast-2.amazonaws.com/api/products/1
 Average cubic weight (ACW) for the "Air Conditioners" category:
  Window Seal for Portable Air Conditioner Outlets             => 0.845      (kg)
